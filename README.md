@@ -4,7 +4,10 @@
 docker build . -t arm-none-eabi
 
 ## Test assembler
-docker run arm-none-eabi gnu_toolchain/bin/arm-none-eabi-as --version
+```bash
+docker run arm-none-eabi \
+      gnu_toolchain/bin/arm-none-eabi-as --version
+```
 
 ## Assemble something by mounting to /src
 #### (Assuming sample.asm exists in HOST_SRC)
