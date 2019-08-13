@@ -20,3 +20,12 @@ docker run \
       arm-none-eabi-as \
       /src/sample.asm
 ```
+
+## Make example
+#### (Assuming sample.asm exists in HOST_SRC)
+```bash
+docker run \
+      -v HOST_SRC:/src \
+      arm-none-eabi \
+      bash -c "cd src && make" 
+```
