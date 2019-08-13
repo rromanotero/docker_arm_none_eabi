@@ -1,24 +1,31 @@
 # ARM Embedded GNU Toolchain 8-2019-q3-update (in Docker)
 
 ## Build
-docker build . -t rromanotero/arm-none-eabi
+```bash
+docker build . -t arm-none-eabi
+```
 
 ## Test assembler
-docker run rromanotero/arm-none-eabi gnu_toolchain/bin/arm-none-eabi-as --version
+```bash
+docker run arm-none-eabi \
+      arm-none-eabi-as --version
+```
 
 ## Assemble something by mounting to /src
-## (Assuming sample.asm exists in HOST_SRC)
-
-### For Linux/Mac
+#### (Assuming sample.asm exists in HOST_SRC)
+```bash
 docker run \
       -v HOST_SRC:/src \
-      rromanotero/arm-none-eabi \
-      gnu_toolchain/bin/arm-none-eabi-as \
+      arm-none-eabi \
+      arm-none-eabi-as \
       /src/sample.asm
+```
 
-### For Windows
-docker run `
-      -v HOST_SRC:/src `
-      rromanotero/arm-none-eabi `
-      gnu_toolchain/bin/arm-none-eabi-as `
-      /src/sample.asm
+## Make example
+#### (Assuming sample.asm exists in HOST_SRC)
+```bash
+docker run \
+      -v HOST_SRC:/src \
+      arm-none-eabi \
+      bash -c "cd src && make" 
+```
