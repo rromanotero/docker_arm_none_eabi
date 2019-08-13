@@ -1,12 +1,14 @@
 # ARM Embedded GNU Toolchain 8-2019-q3-update (in Docker)
 
 ## Build
+```bash
 docker build . -t arm-none-eabi
+```
 
 ## Test assembler
 ```bash
 docker run arm-none-eabi \
-      gnu_toolchain/bin/arm-none-eabi-as --version
+      arm-none-eabi-as --version
 ```
 
 ## Assemble something by mounting to /src
@@ -15,6 +17,6 @@ docker run arm-none-eabi \
 docker run \
       -v HOST_SRC:/src \
       arm-none-eabi \
-      gnu_toolchain/bin/arm-none-eabi-as \
+      arm-none-eabi-as \
       /src/sample.asm
 ```
